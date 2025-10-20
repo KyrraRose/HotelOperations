@@ -29,6 +29,22 @@ public class Room {
         return dirty;
     }
 
+    public void setNumberOfBeds(int numberOfBeds) {
+        this.numberOfBeds = numberOfBeds;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
+    }
+
+    public void setDirty(boolean dirty) {
+        this.dirty = dirty;
+    }
+
     public boolean isAvailable() {
         return (!dirty&&!occupied);
     }
