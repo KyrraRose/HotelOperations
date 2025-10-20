@@ -6,9 +6,16 @@ public class Reservation {
     private int numberOfNights;
     private boolean weekend;
 
-    public Reservation(String roomType, double price, int numberOfNights, boolean weekend) {
+    public Reservation(String roomType, int numberOfNights, boolean weekend) {
         this.roomType = roomType;
-        this.price = price;
+        switch (roomType){
+            case "king":
+                this.price = 139;
+                break;
+            case "double":
+                this.price = 124;
+                break;
+        }
         this.numberOfNights = numberOfNights;
         this.weekend = weekend;
     }
@@ -23,10 +30,6 @@ public class Reservation {
 
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public int getNumberOfNights() {

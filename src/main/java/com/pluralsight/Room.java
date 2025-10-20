@@ -16,10 +16,6 @@ public class Room {
         return numberOfBeds;
     }
 
-    public void setNumberOfBeds(int numberOfBeds) {
-        this.numberOfBeds = numberOfBeds;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -28,16 +24,9 @@ public class Room {
         return occupied;
     }
 
-    public void setOccupied(boolean occupied) {
-        this.occupied = occupied;
-    }
 
     public boolean isDirty() {
         return dirty;
-    }
-
-    public void setDirty(boolean dirty) {
-        this.dirty = dirty;
     }
 
     public boolean isAvailable() {
