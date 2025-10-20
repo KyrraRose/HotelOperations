@@ -6,16 +6,9 @@ public class Reservation {
     private int numberOfNights;
     private boolean weekend;
 
-    public Reservation(String roomType, int numberOfNights, boolean weekend) {
+    public Reservation(String roomType,double price, int numberOfNights, boolean weekend) {
         this.roomType = roomType;
-        switch (roomType){
-            case "king":
-                this.price = 139;
-                break;
-            case "double":
-                this.price = 124;
-                break;
-        }
+        this.price = price;
         this.numberOfNights = numberOfNights;
         this.weekend = weekend;
     }

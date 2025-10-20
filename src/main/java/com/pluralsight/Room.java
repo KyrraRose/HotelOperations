@@ -12,6 +12,21 @@ public class Room {
         this.dirty = dirty;
     }
 
+    /** public Room(int numberOfBeds, boolean occupied, boolean dirty) {
+        this.numberOfBeds = numberOfBeds;
+        switch (numberOfBeds){
+            case 1:
+                this.price = 139;
+                break;
+            case 2:
+                this.price = 124;
+                break;
+        }
+        this.occupied = occupied;
+        this.dirty = dirty;
+    }**/
+
+
     public int getNumberOfBeds() {
         return numberOfBeds;
     }
