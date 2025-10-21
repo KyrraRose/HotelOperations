@@ -1,5 +1,10 @@
 package com.pluralsight;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Employee {
    private String employeeId, name, department;
    private double payRate, hoursWorked, clockIn,clockOut;
@@ -10,8 +15,6 @@ public class Employee {
         this.department = department;
         this.payRate = payRate;
         this.hoursWorked = 0;
-        this.clockIn = 0;
-        this.clockOut = 0;
     }
 
     public String getEmployeeId() {
@@ -81,8 +84,17 @@ public class Employee {
             this.clockIn = 0;
             this.clockOut = 0;
         }
-
-
+    }
+    public void clockInOut(){
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("H.mm");
+        if(this.clockIn == 0){
+             this.clockIn = Double.parseDouble(LocalTime.now().format(timeFormat));
+        }else {
+            this.clockOut = Double.parseDouble(LocalTime.now().plusHours(12).format(timeFormat));
+            //adding 12 hours here to test the clock in/out
+            this.hoursWorked += Math.abs(this.clockIn - this.clockOut);
+            this.clockIn = 0;
+        }
     }
     public double getHoursWorked() {
         return hoursWorked;

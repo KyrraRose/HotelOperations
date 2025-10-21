@@ -30,5 +30,12 @@ public class HotelOperations {
         System.out.printf("%s worked %.2f hours in %s, earning $%.2f",linda.getName(),linda.getHoursWorked(),linda.getDepartment(),linda.getTotalPay());
         System.out.println();
 
+        Employee kyrra = new Employee("138b","Kyrra Bosland","Party Planning",120);
+        kyrra.clockInOut();
+        kyrra.clockInOut();
+        System.out.printf("%s worked %.2f hours in %s, earning $%.2f",kyrra.getName(),kyrra.getHoursWorked(),kyrra.getDepartment(),kyrra.getTotalPay());
+        System.out.println();
+
+
     }
 }
