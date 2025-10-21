@@ -11,14 +11,9 @@ public class HotelOperations {
         System.out.println();
 
         Room standard1 = new Room(2,regular.getPrice());
-        Room standard2 = new Room(2,regular.getPrice());
-        Room honeymoon = new Room(1,vip.getPrice());
-        Room executive = new Room(1,vip.getPrice());
+
 
         standard1.checkIn();
-        standard2.checkIn();
-        honeymoon.checkIn();
-        executive.checkIn();
 
         System.out.println("Is standard room 1 available: "+standard1.isAvailable());
         standard1.checkOut();
