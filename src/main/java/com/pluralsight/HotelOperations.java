@@ -22,9 +22,11 @@ public class HotelOperations {
         System.out.println("Is standard room 1 available: "+standard1.isAvailable());
 
         Employee linda = new Employee("124h","Linda Barnes","Guest Services",15.00);
-        linda.clockInOut(11.50,20);
+        linda.clockInOut(12);
+        linda.clockInOut(24);
         //testing adding more hours, a second shift if you will
-        linda.clockInOut(9,19);
+        linda.clockInOut(9);
+        linda.clockInOut(19);
         System.out.printf("%s worked %.2f hours in %s, earning $%.2f",linda.getName(),linda.getHoursWorked(),linda.getDepartment(),linda.getTotalPay());
         System.out.println();
 
