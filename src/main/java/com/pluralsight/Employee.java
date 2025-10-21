@@ -2,14 +2,16 @@ package com.pluralsight;
 
 public class Employee {
    private String employeeId, name, department;
-   private double payRate, hoursWorked;
+   private double payRate, hoursWorked,timeIn,timeOut;
 
-    public Employee(String employeeId, String name, String department, double payRate, double hoursWorked) {
+    public Employee(String employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
-        this.hoursWorked = hoursWorked;
+        this.hoursWorked = timeIn-timeOut;
+        this.timeIn = 0;
+        this.timeOut = 0;
     }
 
     public String getEmployeeId() {
@@ -44,9 +46,7 @@ public class Employee {
         this.payRate = payRate;
     }
 
-    public double getHoursWorked() {
-        return hoursWorked;
-    }
+
 
     public void setHoursWorked(double hoursWorked) {
         this.hoursWorked = hoursWorked;
@@ -71,4 +71,18 @@ public class Employee {
     public double getTotalPay(){
         return (getRegularHours()*payRate)+(getOvertimeHours()*(payRate*1.5));
     }
+
+    public double clockIn(double clockIn){
+        this.timeIn = clockIn;
+        return this.timeIn;
+    }
+    public double clockOut(double clockOut){
+        this.timeOut = clockOut;
+        return this.timeOut;
+    }
+    public double getHoursWorked() {
+        this.hoursWorked =Math.abs(timeIn-timeOut);
+        return hoursWorked;
+    }
+
 }

@@ -5,26 +5,13 @@ public class Room {
     private double price;
     private boolean occupied,dirty;
 
-    public Room(int numberOfBeds, double price, boolean occupied, boolean dirty) {
+    public Room(int numberOfBeds, double price) {
         this.numberOfBeds = numberOfBeds;
         this.price = price;
-        this.occupied = occupied;
-        this.dirty = dirty;
+        //defaulting rooms to be ready for check-in
+        this.occupied = false;
+        this.dirty = false;
     }
-
-    /** public Room(int numberOfBeds, boolean occupied, boolean dirty) {
-        this.numberOfBeds = numberOfBeds;
-        switch (numberOfBeds){
-            case 1:
-                this.price = 139;
-                break;
-            case 2:
-                this.price = 124;
-                break;
-        }
-        this.occupied = occupied;
-        this.dirty = dirty;
-    }**/
 
 
     public int getNumberOfBeds() {
@@ -39,29 +26,24 @@ public class Room {
         return occupied;
     }
 
-
     public boolean isDirty() {
         return dirty;
-    }
-
-    public void setNumberOfBeds(int numberOfBeds) {
-        this.numberOfBeds = numberOfBeds;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setOccupied(boolean occupied) {
-        this.occupied = occupied;
-    }
-
-    public void setDirty(boolean dirty) {
-        this.dirty = dirty;
     }
 
     public boolean isAvailable() {
         return (!dirty&&!occupied);
     }
+
+    public void cleanRoom(){
+        this.dirty = false;
+    }
+    public void checkIn(){
+        this.occupied = true;
+        this.dirty = true;
+    }
+    public void  checkOut(){
+        this.occupied = false;
+    }
+
 
 }
