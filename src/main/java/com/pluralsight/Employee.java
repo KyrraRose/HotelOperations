@@ -86,9 +86,10 @@ public class Employee {
         }
     }
     public void clockInOut(){
-        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("H.mm");
+        DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("H");
+        DateTimeFormatter minuteFormat = DateTimeFormatter.ofPattern("mm");
         if(this.clockIn == 0){
-             this.clockIn = Double.parseDouble(LocalTime.now().format(timeFormat));
+             this.clockIn = Double.parseDouble(toString(LocalTime.now().getHour())+"."+toString((LocalTime.now().getMinute())/60)));
         }else {
             this.clockOut = Double.parseDouble(LocalTime.now().plusHours(12).format(timeFormat));
             //adding 12 hours here to test the clock in/out
