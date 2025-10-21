@@ -2,7 +2,7 @@ package com.pluralsight;
 
 public class Employee {
    private String employeeId, name, department;
-   private double payRate, hoursWorked,timeClock;
+   private double payRate, hoursWorked, clockIn,clockOut;
 
     public Employee(String employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
@@ -10,7 +10,8 @@ public class Employee {
         this.department = department;
         this.payRate = payRate;
         this.hoursWorked = 0;
-        this.timeClock = 0;
+        this.clockIn = 0;
+        this.clockOut = 0;
     }
 
     public String getEmployeeId() {
@@ -72,14 +73,16 @@ public class Employee {
     }
 
     public void clockInOut(double timePunch){
+        if(this.clockIn == 0){
+            this.clockIn = timePunch;
+        }else {
+            this.clockOut = timePunch;
+            this.hoursWorked += Math.abs(this.clockIn -this.clockOut);
+        }
 
-        do{
-           this.timeClock += timePunch;
-        }while(this.timeClock == 0);
-        if (this.timeClock != timePunch){
-            this.timeClock -= timePunch;
-            this.hoursWorked += Math.abs(this.timeClock);
-            this.timeClock = 0;
+        if (this.clockOut != 0){
+            this.clockIn = 0;
+            this.clockOut = 0;
         }
 
     }
