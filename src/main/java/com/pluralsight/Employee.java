@@ -78,12 +78,10 @@ public class Employee {
         }else {
             this.clockOut = timePunch;
             this.hoursWorked += Math.abs(this.clockIn -this.clockOut);
-        }
-
-        if (this.clockOut != 0){
             this.clockIn = 0;
             this.clockOut = 0;
         }
+
 
     }
     public double getHoursWorked() {
