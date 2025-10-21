@@ -77,10 +77,11 @@ public class Employee {
     }
     public void clockOut(double clockOut){
         this.timeOut = clockOut;
+        this.hoursWorked += Math.abs(this.timeIn-this.timeOut);
+        this.timeIn = 0;
+        this.timeOut = 0;
     }
     public double getHoursWorked() {
-        double hours =Math.abs(this.timeIn-this.timeOut);
-        this.hoursWorked += hours;
         return hoursWorked;
     }
 
