@@ -72,16 +72,14 @@ public class Employee {
         return (getRegularHours()*payRate)+(getOvertimeHours()*(payRate*1.5));
     }
 
-    public double clockIn(double clockIn){
+    public void clockIn(double clockIn){
         this.timeIn = clockIn;
-        return this.timeIn;
     }
-    public double clockOut(double clockOut){
+    public void clockOut(double clockOut){
         this.timeOut = clockOut;
-        return this.timeOut;
     }
     public double getHoursWorked() {
-        double hours =Math.abs(timeIn-timeOut);
+        double hours =Math.abs(this.timeIn-this.timeOut);
         this.hoursWorked += hours;
         return hoursWorked;
     }
