@@ -81,7 +81,8 @@ public class Employee {
         return this.timeOut;
     }
     public double getHoursWorked() {
-        this.hoursWorked =Math.abs(timeIn-timeOut);
+        double hours =Math.abs(timeIn-timeOut);
+        this.hoursWorked += hours;
         return hoursWorked;
     }
 

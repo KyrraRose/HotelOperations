@@ -26,9 +26,13 @@ public class HotelOperations {
         standard1.cleanRoom();
         System.out.println("Is standard room 1 available: "+standard1.isAvailable());
 
-        Employee linda = new Employee("124h","Linda Barnes","Concierge",15.00);
-        linda.clockIn(10.35);
-        linda.clockOut(14.00);
+        Employee linda = new Employee("124h","Linda Barnes","Guest Services",15.00);
+        linda.clockIn(10.50);
+        linda.clockOut(20.00);
+        linda.getHoursWorked();
+        //testing adding more hours, a second shift if you will
+        linda.clockIn(9);
+        linda.clockOut(19);
         System.out.printf("%s worked %.2f hours in %s, earning $%.2f",linda.getName(),linda.getHoursWorked(),linda.getDepartment(),linda.getTotalPay());
         System.out.println();
 
