@@ -42,7 +42,26 @@ public class Hotel {
         this.bookedBasicRooms = bookedBasicRooms;
     }
 
-    //public boolean bookRoom(int numberOfRooms, boolean isSuite){
+    public boolean bookRoom(int numberOfRooms, boolean isSuite){
+        /*A user should be able to book one or more rooms (if they are available). The user
+        * will specify how many rooms they would like, and if it is a suite or a basic room.*/
+        if (isSuite){
+            if (this.numberOfSuites-this.bookedSuites >= numberOfRooms){
+                this.bookedSuites += numberOfRooms;
+                this.numberOfSuites -= numberOfRooms;
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            if (this.numberOfRooms - this.bookedBasicRooms >= numberOfRooms){
+                this.numberOfRooms -= numberOfRooms;
+                this.bookedBasicRooms += numberOfRooms;
+                return true;
+            }else{
+                return false;
+            }
+        }
 
-    //}
+    }
 }
