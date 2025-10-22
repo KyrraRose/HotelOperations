@@ -46,22 +46,23 @@ public class Hotel {
         /*A user should be able to book one or more rooms (if they are available). The user
         * will specify how many rooms they would like, and if it is a suite or a basic room.*/
         if (isSuite){
-            if (this.numberOfSuites-this.bookedSuites >= numberOfRooms){
+            if (getAvailableSuites()>= numberOfRooms){
                 this.bookedSuites += numberOfRooms;
-                this.numberOfSuites -= numberOfRooms;
                 return true;
-            }else{
-                return false;
             }
         }else{
-            if (this.numberOfRooms - this.bookedBasicRooms >= numberOfRooms){
+            if (getAvailableRooms() >= numberOfRooms){
                 this.numberOfRooms -= numberOfRooms;
-                this.bookedBasicRooms += numberOfRooms;
                 return true;
-            }else{
-                return false;
             }
         }
+        return false;
 
+    }
+    public int getAvailableSuites(){
+        return this.numberOfSuites-this.bookedSuites;
+    }
+    public int getAvailableRooms(){
+        return this.numberOfRooms - this.bookedBasicRooms;
     }
 }

@@ -75,6 +75,31 @@ public class Employee {
         return (getRegularHours()*payRate)+(getOvertimeHours()*(payRate*1.5));
     }
 
+    public void punchIn(double time) {
+        this.clockIn = time;
+    }
+
+    public void punchIn() {
+        LocalDateTime now = LocalDateTime.now();
+        this.clockIn = now.getHour() + ((double)now.getMinute() / 60);
+    }
+    public double getClockIn(){
+        return this.clockIn;
+    }
+
+    public void punchOut(double time) {
+        this.hoursWorked += (time - this.clockIn);
+        this.clockIn = -1;
+    }
+
+    public void punchOut() {
+        LocalDateTime now = LocalDateTime.now();
+        double time = now.getHour() + ((double)now.getMinute() / 60)+12;
+        //adding 12 for testing purposes, since we're using local time
+        this.hoursWorked += (time - this.clockIn);
+        this.clockIn = -1;
+    }
+
     public void clockInOut(double timePunch){
         if(this.clockIn == 0){
             this.clockIn = timePunch;
