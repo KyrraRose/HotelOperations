@@ -42,7 +42,7 @@ public class Hotel {
         this.bookedBasicRooms = bookedBasicRooms;
     }
 
-    public boolean bookRoom(int numberOfRooms, boolean isSuite){
+    //public boolean bookRoom(int numberOfRooms, boolean isSuite){
 
-    }
+    //}
 }

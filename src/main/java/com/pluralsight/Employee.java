@@ -89,12 +89,17 @@ public class Employee {
         DateTimeFormatter hourFormat = DateTimeFormatter.ofPattern("H");
         DateTimeFormatter minuteFormat = DateTimeFormatter.ofPattern("mm");
         if(this.clockIn == 0){
-             this.clockIn = Double.parseDouble(toString(LocalTime.now().getHour())+"."+toString((LocalTime.now().getMinute())/60)));
+             double minutes = LocalTime.now().getMinute();
+             double hour = LocalTime.now().getHour();
+             this.clockIn = hour + (minutes/60);
         }else {
-            this.clockOut = Double.parseDouble(LocalTime.now().plusHours(12).format(timeFormat));
-            //adding 12 hours here to test the clock in/out
+            double minutes = LocalTime.now().plusMinutes(30).getMinute();
+            double hour = LocalTime.now().plusHours(12).getHour();
+            //adding 12 hours 30 mins here to test the clock in/out
+            this.clockOut = hour + (minutes/60);
             this.hoursWorked += Math.abs(this.clockIn - this.clockOut);
             this.clockIn = 0;
+            this.clockOut = 0;
         }
     }
     public double getHoursWorked() {
